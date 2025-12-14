@@ -9,3 +9,4 @@ depend: [Slimefun]
 softdepend: [GuizhanLibPlugin]
 
 api-version: 1.14
+folia-supported: true

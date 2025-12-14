@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.sfiguz7</groupId>
     <artifactId>ExtraTools</artifactId>
-    <version>UNOFFICIAL</version>
+    <version>1.0.0-Folia</version>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -19,8 +19,8 @@
         </repository>
 
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>menthamc</id>
+            <url>https://repo.menthamc.org/repository/maven-public/</url>
         </repository>
 
         <repository>
@@ -53,7 +53,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.6.1</version>
 
                 <configuration>
                     <minimizeJar>true</minimizeJar>
@@ -98,16 +98,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <groupId>me.earthme.luminol</groupId>
+            <artifactId>luminol-api</artifactId>
+            <version>1.21.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>io.github.Slimefun</groupId>
+            <groupId>com.github.slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-30</version>
+            <version>RC-36</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
