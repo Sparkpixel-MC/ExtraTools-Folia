@@ -1,5 +1,5 @@
 name: ExtraTools
-version: ${project.version}
+version: '${version}'
 author: Sfiguz7
 description: A Slimefun4-Addon aimed at implementing useful tools
 website: https://github.com/Sfiguz7/ExtraTools
@@ -8,5 +8,5 @@ main: me.sfiguz7.extratools.ExtraTools
 depend: [Slimefun]
 softdepend: [GuizhanLibPlugin]
 
-api-version: 1.14
+api-version: '26.2'
 folia-supported: true

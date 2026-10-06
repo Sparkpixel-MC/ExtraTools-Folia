@@ -26,6 +26,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class CobblestoneGenerator extends SimpleSlimefunItem<BlockTicker> implements ETInventoryBlock,
@@ -36,7 +37,8 @@ public class CobblestoneGenerator extends SimpleSlimefunItem<BlockTicker> implem
         31, 36, 37, 38, 39, 40, 41, 42, 43, 44, 22};
     private final int[] inputBorder = {};
     private final int[] outputBorder = {14, 15, 16, 17, 23, 26, 32, 33, 34, 35};
-    private int decrement = 2;
+    // Folia 下不同 Region 线程会并发执行同一 BlockTicker,计数器必须原子化
+    private final AtomicInteger decrement = new AtomicInteger(2);
 
     public CobblestoneGenerator() {
         super(ETItems.extra_tools, ETItems.COBBLESTONE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -129,19 +131,14 @@ public class CobblestoneGenerator extends SimpleSlimefunItem<BlockTicker> implem
                 // Needed to keep track of all cobble gens at once,
                 // All it does is set back to max (for now 2, will be customizable)
                 // when it reaches the lowest possible (AKA 1)
-                if (decrement == 1) {
-                    decrement = 2;
-                    return;
-                }
-                decrement--;
-
+                decrement.updateAndGet(current -> current == 1 ? 2 : current - 1);
             }
 
             @Override
             public void tick(Block b, SlimefunItem sf, Config data) {
                 // We only act once per decrement cycle, when decrement got to
                 // lowest and has been reset
-                if (decrement != 2) {
+                if (decrement.get() != 2) {
                     return;
                 }
 
