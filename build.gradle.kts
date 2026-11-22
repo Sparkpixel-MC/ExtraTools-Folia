@@ -6,11 +6,11 @@ plugins {
 }
 
 group = "me.sfiguz7"
-version = "1.0.0-Folia"
+version = "1.1.0-Folia"
 
 java {
     toolchain {
-        // Paper/Folia 26.2 requires Java 25
+        // Paper/Folia 26.3 requires Java 25
         languageVersion = JavaLanguageVersion.of(25)
     }
 }

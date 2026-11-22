@@ -8,5 +8,5 @@ main: me.sfiguz7.extratools.ExtraTools
 depend: [Slimefun]
 softdepend: [GuizhanLibPlugin]
 
-api-version: '26.2'
+api-version: '26.3'
 folia-supported: true
